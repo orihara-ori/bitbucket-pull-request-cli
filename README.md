@@ -9,13 +9,15 @@
 git clone https://github.com/orihara-ori/bitbucket-pull-request-cli.git
 cd bitbucket-pull-request-cli/
 ```
+
 - basic 認証で利用する認証情報を取得
-  - 以下の場合は `WU9VUi1VU0VSLU5BTUU6WU9VUi1QQVNTV09SRA==`
-    - この値は適時自分のアカウント情報に読み替えてください
+  - app passwordでハッシュ値を作る
+    - https://ja.confluence.atlassian.com/bitbucket/app-passwords-828781300.html
 ```
-echo -n YOUR-BITBUCKET-USER-NAME:YOUR-BITBUCKET-PASSWORD | base64
-WU9VUi1VU0VSLU5BTUU6WU9VUi1QQVNTV09SRA==
+$ echo -n YOUR-ATLASSIAN-USER-NAME:YOUR-ATLASSIAN-APP-PASSWORD | base64
+WU9VUi1BVExBU1NJQU4tVVNFUi1OQU1FOllPVVItQVRMQVNTSUFOLUFQUC1QQVNTV09SRA==
 ```
+
 
 ## コマンド実行
 - フォーマット
@@ -24,7 +26,7 @@ ruby pull_requests.rb BASE64-OUTH-INFO YOUR-TEAM/YOUR-REPOSITORY YOUR-DESTINATIO
 ```
 
 - 例
-  - 401 が返りますが `WU9VUi1VU0VSLU5BTUU6WU9VUi1QQVNTV09SRA==` を正しく設定すると利用できます
+  - 401 が返りますが `WU9VUi1BVExBU1NJQU4tVVNFUi1OQU1FOllPVVItQVRMQVNTSUFOLUFQUC1QQVNTV09SRA==` を正しく設定すると利用できます
 ```
-ruby pull_requests.rb WU9VUi1VU0VSLU5BTUU6WU9VUi1QQVNTV09SRA== ori-orihara/example master
+ruby pull_requests.rb WU9VUi1BVExBU1NJQU4tVVNFUi1OQU1FOllPVVItQVRMQVNTSUFOLUFQUC1QQVNTV09SRA== orihara-ori/example master
 ```
